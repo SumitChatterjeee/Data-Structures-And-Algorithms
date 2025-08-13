@@ -32,3 +32,20 @@ static class DisjointSet{
             rank[a]++;
         }
     }
+    public void UnionBySize(int x,int y){
+        int a=find(x);
+        int b=find(y);
+        if(size[a]<size[b]){
+            parent[a]=b;
+            size[b]+=size[a];
+        }
+        else if(size[a]>size[b]){
+            parent[b]=a;
+            size[a]+=size[b];
+        }
+        else{
+            parent[b]=a;
+            size[a]+=size[b];
+        }
+    }
+    }
